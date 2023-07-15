@@ -1,47 +1,35 @@
 package com.example.latihan;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
-    Button linear, relative, login;
+
+
+    Button btntampilkan;
+    EditText nama, alamat;
+    TextView hasil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-      linear = findViewById(R.id.btnLinear);
-      relative = findViewById(R.id.btnRelative);
-      login = findViewById(R.id.btnLogin);
+        btntampilkan = findViewById(R.id.btntampilkan);
+        nama = findViewById(R.id.edtnama);
+        alamat = findViewById(R.id.edtalamat);
+        hasil = findViewById(R.id.txthasil);
 
-
-        linear.setOnClickListener(new View.OnClickListener() {
+        btntampilkan.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent linearlayout = new Intent(HomeActivity.this, MainActivity.class);
-                startActivity(linearlayout);
-            }
-        });
-
-        relative.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent relativelayout = new Intent(HomeActivity.this, RegisterActivity.class);
-                startActivity(relativelayout);
-            }
-        });
-
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent login = new Intent(HomeActivity.this, LoginActivity.class);
-                startActivity(login);
+                hasil.setText("Hello Nama Saya " + nama.getText().toString()
+                        + " dan Alamat Saya di " + alamat.getText().toString());
             }
         });
     }

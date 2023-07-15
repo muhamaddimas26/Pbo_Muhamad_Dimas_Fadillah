@@ -1,42 +1,62 @@
 package com.example.latihan;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    Button tampilkan;
-    EditText nama, alamat;
-    TextView hasil;
-
+    Button linear, relative, login, view, negara, kalkulator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tampilkan = findViewById(R.id.btntampilkan);
-        nama = findViewById(R.id.edtnama);
-        alamat = findViewById(R.id.edtalamat);
-        hasil = findViewById(R.id.txthasil);
+        linear = findViewById(R.id.btnLinear);
+        relative = findViewById(R.id.btnRelative);
+        login = findViewById(R.id.btnLogin);
+        view = findViewById(R.id.btnView);
+        negara = findViewById(R.id.btnNegara);
 
-        tampilkan.setOnClickListener(new Button.OnClickListener() {
+        linear.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                hasil.setText("Hello Nama Saya " + nama.getText().toString()
-                            + " dan alamat Saya di " + alamat.getText().toString());
+            public void onClick(View view) {
+                Intent linearlayout = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(linearlayout);
+            }
+        });
+        relative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent relativelayout = new Intent(MainActivity.this, RelativeActivity.class);
+                startActivity(relativelayout);
+            }
+        });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent menulogin = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(menulogin);
+            }
+        });
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent viewData = new Intent(MainActivity.this, ListViewDataActivity.class);
+                startActivity(viewData);
             }
         });
 
-
-
-
+        negara.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent menuNegara = new Intent(MainActivity.this, ListViewActivity.class);
+                startActivity(menuNegara);
+            }
+        });
     }
 }
